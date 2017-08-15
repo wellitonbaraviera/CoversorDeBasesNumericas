@@ -37,9 +37,12 @@ public class Assign extends JFrame {
         add(octTextField);
         add(hexName);
         add(hexTextField);
-        
+
         ConvAction makeConv = new ConvAction();
         decTextField.addActionListener(makeConv);
+        biTextField.addActionListener(makeConv);
+        octTextField.addActionListener(makeConv);
+
     }
 
     private class ConvAction implements ActionListener {
@@ -61,6 +64,28 @@ public class Assign extends JFrame {
                 octTextField.setText(oct);
                 hexTextField.setText(hex);
 
+            } else if (enterPressed.getSource() == biTextField) {
+                    userText = biTextField.getText();
+
+                    dec = Integer.parseInt(userText, 2);
+                    oct = Integer.toOctalString(dec);
+                    hex = Integer.toHexString(dec);
+
+                    decTextField.setText(String.valueOf(dec));
+                    octTextField.setText(oct);
+                    hexTextField.setText(hex);
+
+            } else if(enterPressed.getSource() == octTextField){
+                userText = octTextField.getText();
+
+                    dec = Integer.parseInt(userText);
+                    bin = Integer.toBinaryString(dec);
+                    hex = Integer.toHexString(dec);
+
+                    decTextField.setText(String.valueOf(dec));
+                    biTextField.setText(bin);
+                    hexTextField.setText(hex);
+                
             }
         }
 
