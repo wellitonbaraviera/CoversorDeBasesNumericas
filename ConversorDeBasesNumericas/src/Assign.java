@@ -22,7 +22,7 @@ public class Assign extends JFrame {
         decName = new JLabel("Decimal : ");
         biName = new JLabel("Binario : ");
         octName = new JLabel("Octal : ");
-        hexName = new JLabel("Hexadecimal : ");
+        hexName = new JLabel("Hexadec : ");
 
         decTextField = new JTextField(10);
         biTextField = new JTextField(10);
@@ -42,6 +42,7 @@ public class Assign extends JFrame {
         decTextField.addActionListener(makeConv);
         biTextField.addActionListener(makeConv);
         octTextField.addActionListener(makeConv);
+        hexTextField.addActionListener(makeConv);
 
     }
 
@@ -85,6 +86,17 @@ public class Assign extends JFrame {
                     decTextField.setText(String.valueOf(dec));
                     biTextField.setText(bin);
                     hexTextField.setText(hex);
+                
+            } else if(enterPressed.getSource() == hexTextField){
+                userText = hexTextField.getText();
+
+                    dec = Integer.valueOf(userText, 16);
+                    bin = Integer.toBinaryString(dec);
+                    oct = Integer.toOctalString(dec);
+
+                    decTextField.setText(String.valueOf(dec));
+                    biTextField.setText(bin);
+                    octTextField.setText(oct);
                 
             }
         }
