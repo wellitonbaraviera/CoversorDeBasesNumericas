@@ -1,5 +1,4 @@
 
-import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
@@ -22,13 +21,14 @@ public class Assign extends JFrame {
     JButton limpar;
 
     public Assign() {
-        //setLayout(new FlowLayout(FlowLayout.CENTER, 10, 20));
         setLayout(null);
-        Titulo = new JLabel("Insira o valor em um campo em branco para obter a conversão e aperte enter! ");
+
+        Titulo = new JLabel("<html>Insira o valor em um campo em branco <p>"
+                + " para obter a conversão e aperte enter! </html>");
         decName = new JLabel("Decimal : ");
         biName = new JLabel("Binario : ");
         octName = new JLabel("Octal : ");
-        hexName = new JLabel("Hexadec : ");
+        hexName = new JLabel("Hexadecimal : ");
         limpar = new JButton("Limpar");
 
         decTextField = new JTextField(10);
@@ -47,22 +47,22 @@ public class Assign extends JFrame {
         add(hexTextField);
         add(limpar);
 // setbounds(posColuna, posLinha, comprimentoLinha, alturaLinha);
-       
+
         Titulo.setBounds(50, 30, 500, 40);
-        
-             decName.setBounds(50, 80, 100, 20);
-        decTextField.setBounds(200, 80, 250, 20);
-        
-             biName.setBounds(50, 130, 100, 20);
-        biTextField.setBounds(200, 130, 250, 20);
-        
-             octName.setBounds(50, 180, 100, 20);
-        octTextField.setBounds(200, 180, 250, 20);
-        
-             hexName.setBounds(50, 230, 100, 20);
-        hexTextField.setBounds(200, 230, 250, 20);
-        
-              limpar.setBounds(50, 280, 100, 20);
+
+        decName.setBounds(50, 80, 100, 20);
+        decTextField.setBounds(150, 80, 250, 20);
+
+        biName.setBounds(50, 130, 100, 20);
+        biTextField.setBounds(150, 130, 250, 20);
+
+        octName.setBounds(50, 180, 100, 20);
+        octTextField.setBounds(150, 180, 250, 20);
+
+        hexName.setBounds(50, 230, 100, 20);
+        hexTextField.setBounds(150, 230, 250, 20);
+
+        limpar.setBounds(50, 280, 100, 20);
 
         ConvAction makeConv = new ConvAction();
         decTextField.addActionListener(makeConv);
@@ -75,8 +75,6 @@ public class Assign extends JFrame {
             octTextField.setText("");
             hexTextField.setText("");
         });
-        //setLayout(null);
-        decName.setBounds(10, 15, 40, 20);
 
     }
 
