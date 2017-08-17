@@ -46,7 +46,6 @@ public class Assign extends JFrame {
         add(hexName);
         add(hexTextField);
         add(limpar);
-// setbounds(posColuna, posLinha, comprimentoLinha, alturaLinha);
 
         Titulo.setBounds(50, 30, 500, 40);
 
