@@ -19,23 +19,22 @@ public class Assign extends JFrame {
     JTextField biTextField;
     JTextField octTextField;
     JTextField hexTextField;
-   // private void jbutton1ActionPerformed(java.awt.event.ActionEvent evt){
-    //decTextField.setText("");
-    //}
+    JButton limpar;
+
     public Assign() {
-        setLayout(new FlowLayout(FlowLayout.RIGHT));
-        
-        Titulo = new JLabel("Insira o valor em um campo em branco para obter a conversão!/n");
+        //setLayout(new FlowLayout(FlowLayout.CENTER, 10, 20));
+        setLayout(null);
+        Titulo = new JLabel("Insira o valor em um campo em branco para obter a conversão e aperte enter! ");
         decName = new JLabel("Decimal : ");
         biName = new JLabel("Binario : ");
         octName = new JLabel("Octal : ");
         hexName = new JLabel("Hexadec : ");
+        limpar = new JButton("Limpar");
 
         decTextField = new JTextField(10);
         biTextField = new JTextField(10);
         octTextField = new JTextField(10);
         hexTextField = new JTextField(10);
-        
 
         add(Titulo);
         add(decName);
@@ -46,11 +45,24 @@ public class Assign extends JFrame {
         add(octTextField);
         add(hexName);
         add(hexTextField);
-        
-        JButton limpar = new JButton("Limpar");
         add(limpar);
-        
+// setbounds(posColuna, posLinha, comprimentoLinha, alturaLinha);
        
+        Titulo.setBounds(50, 30, 500, 40);
+        
+             decName.setBounds(50, 80, 100, 20);
+        decTextField.setBounds(200, 80, 250, 20);
+        
+             biName.setBounds(50, 130, 100, 20);
+        biTextField.setBounds(200, 130, 250, 20);
+        
+             octName.setBounds(50, 180, 100, 20);
+        octTextField.setBounds(200, 180, 250, 20);
+        
+             hexName.setBounds(50, 230, 100, 20);
+        hexTextField.setBounds(200, 230, 250, 20);
+        
+              limpar.setBounds(50, 280, 100, 20);
 
         ConvAction makeConv = new ConvAction();
         decTextField.addActionListener(makeConv);
@@ -63,10 +75,13 @@ public class Assign extends JFrame {
             octTextField.setText("");
             hexTextField.setText("");
         });
+        //setLayout(null);
+        decName.setBounds(10, 15, 40, 20);
+
     }
 
     private class ConvAction implements ActionListener {
-        
+
         @Override
         public void actionPerformed(ActionEvent enterPressed) {
             String userText, bin, oct, hex;
@@ -83,8 +98,6 @@ public class Assign extends JFrame {
                 biTextField.setText(bin);
                 octTextField.setText(oct);
                 hexTextField.setText(hex);
-                
-                
 
             } else if (enterPressed.getSource() == biTextField) {
                 userText = biTextField.getText();
@@ -123,6 +136,5 @@ public class Assign extends JFrame {
         }
 
     }
-       // private javax.swing.JButton jButton1;
 
 }
